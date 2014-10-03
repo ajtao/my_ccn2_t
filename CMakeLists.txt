@@ -9,6 +9,8 @@ FIND_PACKAGE(CUDA 5.5 REQUIRED)
 SET(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS};-gencode=arch=compute_50,code=sm_50;-gencode=arch=compute_50,code=compute_50;-gencode=arch=compute_35,code=sm_35;-gencode=arch=compute_30,code=sm_30 -O3 -lcublas -lcudart")
 #SET(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS};-gencode=arch=compute_35,code=sm_35 -O3 -lcublas -lcudart --ptxas-options=-v")
 
+MESSAGE(STATUS "nvcc flags: " ${CUDA_NVCC_FLAGS})
+
 IF(APPLE)
   LIST(APPEND CUDA_NVCC_FLAGS "-Xcompiler -stdlib=libstdc++ -Xlinker -stdlib=libstdc++")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libstdc++")
