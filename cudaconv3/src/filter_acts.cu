@@ -647,6 +647,9 @@ __global__ void filterActs_YxX_sparse2_preload_ty_4_tx_32_i_4_f_16_c_4_tex(cudaT
     const int myImgIdx = blockIdx.x * B_X * imgsPerThread + threadIdx.x;
     const int imgOffset = (blockColorIdx + threadIdx.y) * imgPixels * imgStride + myImgIdx;
 
+	printf("filterActs_YxX_sparse2_preload_ty_4_tx_32_i_4_f_16_c_4_tex:%d,%d,%d,%d,%d,%d\n",
+		moduleStride, imgStride, blockColorIdx, numGroups, numModules, myImgIdx);
+
 //    images += (blockColorIdx + threadIdx.y) * imgPixels * imgStride + myImgIdx;
     const int filterOffset = blockFilterIdx
             + shFilterLoadY * numFilters * filterPixels + shFilterLoadX + (conv ? 0 : moduleIdx * numFilterColors * filterPixels * numFilters);
