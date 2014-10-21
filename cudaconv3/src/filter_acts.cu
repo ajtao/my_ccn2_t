@@ -1191,9 +1191,9 @@ __global__ void filterActs_YxX_sparse2(float* images, float* filters, float* tar
     THAssert(numGroups == 1 || numFilterColors % 4 == 0);
     THAssert(numFilters % (16 * numGroups) == 0);
     THAssert(numImgColors % numGroups == 0);
-    images.printShape("images");
-    printf("rows: %d, pixels: %d, colors: %d\n", images->size[0], imgPixels, numImgColors);
-    images.printShape("images");
+    //images.printShape("images");
+    //printf("rows: %d, pixels: %d, colors: %d\n", images->size[0], imgPixels, numImgColors);
+    //images.printShape("images");
     THAssert(images->size[0] == imgPixels * numImgColors);
     THAssert(imgSizeY * imgSizeX == imgPixels);
     int numFiltersPerGroup = numFilters / numGroups;
